@@ -14,10 +14,12 @@ BookingService - create, update, retrieve and delete bookings
 
 HealthCheckService - for API smoke test, basic operability check
 
-Includes logging, authentication, 
+Includes logging, authentication
 
 ## Operation
 
 Clone repo
+
+Add variables to .env: USERNAME, PASSWORD and logFilePath="log/restful-booker-log.log"
 
 execute mvn test -DsuiteName={suiteName} (default is /src/main/resources/test_suites/testng.xml)

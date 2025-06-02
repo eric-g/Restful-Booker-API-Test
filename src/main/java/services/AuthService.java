@@ -1,6 +1,5 @@
 package services;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import io.restassured.response.Response;
 import models.request.AuthRequest;
 
@@ -11,10 +10,9 @@ public class AuthService extends BaseService {
     private String token;
 
     public AuthService() {
-        Dotenv dotenv = Dotenv.load();
 
-        this.username = dotenv.get("USERNAME");
-        this.password = dotenv.get("PASSWORD");
+        this.username = System.getProperty("USERNAME");
+        this.password = System.getProperty("PASSWORD");
     }
 
     public Response getTokenResponse(AuthRequest request) {
