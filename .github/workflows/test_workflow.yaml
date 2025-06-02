@@ -1,15 +1,15 @@
-name: End to End API Automation
+name: API Automation
 
 on:
   workflow_dispatch:
     inputs:
       suite:
-        description: "Suite to run"
+        description: "Run testng regression suite by default"
         required: true
         type: choice
-        default: smoke
+        default: testng
         options:
-          - workflow
+          - testng
 
 jobs:
   API-tests:
