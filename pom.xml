@@ -71,6 +71,7 @@
             <version>3.0.0-M5</version>
             <configuration>
                 <systemPropertyVariables>
+                    <logFilePath>${project.basedir}/log/restful-booker-log.log</logFilePath>
                 </systemPropertyVariables>
                 <suiteXmlFiles>
                     <suiteXmlFile>${project.basedir}/src/main/resources/test_suites/${suiteName}.xml</suiteXmlFile>

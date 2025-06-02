@@ -20,6 +20,6 @@ Includes logging, authentication
 
 Clone repo
 
-Add variables to .env: USERNAME, PASSWORD and logFilePath="log/restful-booker-log.log"
+Add variables to .env: USERNAME, PASSWORD
 
 execute mvn test -DsuiteName={suiteName} (default is /src/main/resources/test_suites/testng.xml)
