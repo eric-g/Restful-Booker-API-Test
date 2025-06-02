@@ -11,8 +11,8 @@ public class AuthService extends BaseService {
 
     public AuthService() {
 
-        this.username = System.getenv("USERNAME");
-        this.password = System.getenv("PASSWORD");
+        this.username = readEnv("USERNAME");
+        this.password = readEnv("PASSWORD");
     }
 
     public Response getTokenResponse(AuthRequest request) {

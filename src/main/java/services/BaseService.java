@@ -15,19 +15,13 @@ public class BaseService {
 
     protected String baseUrl = "https://restful-booker.herokuapp.com";
     private final RequestSpecification requestSpecification;
-
-    static {
-        Dotenv.configure()
-            .ignoreIfMissing() // Ignore if .env file is not found
-            .systemProperties() // Load variables to System properties
-            .load();
-        RestAssured.filters(new LoggingFilter());
-    }
+    private final Dotenv dotenv;
 
     public BaseService() {
+        dotenv = Dotenv.configure().ignoreIfMissing().systemProperties().load();
+        RestAssured.filters(new LoggingFilter());
         requestSpecification = given().baseUri(baseUrl);
         requestSpecification.contentType(ContentType.JSON);
-        
     }
 
     protected <T> void addQueryParameter(HashMap<String, T> queryParams){
@@ -45,5 +39,9 @@ public class BaseService {
     protected Response get(String endpoint) {
         return requestSpecification
                 .get(endpoint);
+    }
+
+    public String readEnv(String key){
+        return dotenv.get(key, System.getenv(key));
     }
 }
