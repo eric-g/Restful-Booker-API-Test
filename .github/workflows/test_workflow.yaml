@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      USERID: ${{ secrets.USERNAME }}
+      USERNAME: ${{ secrets.USERNAME }}
       PASSWORD: ${{ secrets.PASSWORD }}
     steps:
       - name: Checkout code
@@ -30,7 +30,7 @@ jobs:
           java-version: '21'
           cache: 'maven'
       - name: Run API Tests
-        run: mvn test -DsuiteName=${{inputs.suite}}
+        run: mvn test -e -DsuiteName=${{inputs.suite}}
       - name: Upload Execution log
         uses: actions/upload-artifact@v4
         with:
