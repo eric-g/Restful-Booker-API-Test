@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-    <suiteName>${project.basedir}/src/main/resources/test_suites/testng.xml</suiteName>
+    <suiteName>testng</suiteName>
   </properties>
 
   <dependencies>
@@ -73,7 +73,7 @@
                 <systemPropertyVariables>
                 </systemPropertyVariables>
                 <suiteXmlFiles>
-                    <suiteXmlFile>${suiteName}.xml</suiteXmlFile>
+                    <suiteXmlFile>${project.basedir}/src/main/resources/test_suites/${suiteName}.xml</suiteXmlFile>
                 </suiteXmlFiles>
             </configuration>
         </plugin>
