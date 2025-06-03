@@ -36,4 +36,6 @@ src/test:
 
     - Add variables to .env: USERNAME, PASSWORD
 
-execute `mvn test -DsuiteName={suiteName}` (default is /src/main/resources/test_suites/smoke.xml)
+    - execute `mvn test -DsuiteName={suiteName}`
+    
+        - (default is /src/main/resources/test_suites/smoke.xml)

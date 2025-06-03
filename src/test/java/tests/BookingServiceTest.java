@@ -20,7 +20,7 @@ public class BookingServiceTest {
     private BookingService bookingService = new BookingService();
     private int bookingid;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void healthCheck(){
         if(!HealthCheckTest.healthCheck()){
             throw new SkipException("Health check API is down!!");
@@ -30,7 +30,7 @@ public class BookingServiceTest {
     @Test(
         priority = 1,
         description = "Create a booking with valid data",
-        groups = {"smoke", "regression"}
+        groups = {"regression"}
     )
     public void createBooking() {
         CreateBookingRequest createBookingRequest = new CreateBookingRequest.Builder()
@@ -55,7 +55,7 @@ public class BookingServiceTest {
         priority = 2,
         description = "Get all bookings and validate newly created booking ID is present",
         dependsOnMethods = {"createBooking"},
-        groups = {"smoke", "regression"}
+        groups = {"regression"}
     )
     public void getAllBookingIdsContainsCreatedBooking() {
          if (bookingid == 0) {
@@ -76,7 +76,7 @@ public class BookingServiceTest {
         priority = 3,
         description = "Retrieve newly created booking by ID",
         dependsOnMethods = "createBooking",
-        groups = {"smoke", "regression"}
+        groups = {"regression"}
     )
     public void getBookingById() {
         if (bookingid == 0) {

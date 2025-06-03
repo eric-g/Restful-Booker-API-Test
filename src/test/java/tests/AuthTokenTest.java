@@ -14,7 +14,7 @@ public class AuthTokenTest extends BaseTest {
 
     AuthService authService = new AuthService();
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void healthCheck(){
         if(!HealthCheckTest.healthCheck()){
             throw new SkipException("Health check API is down! Skipping tests.");
