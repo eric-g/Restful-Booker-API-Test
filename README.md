@@ -6,20 +6,34 @@ A Maven-based Java/RestAssured test framework with Github workflow.
 
 ## Details
 
-Test services extend from BaseService.
+src/main: Test services extend from BaseService.
 
-AuthService - obtain auth token for put/delete bookings
+    - AuthService - obtain auth token for put/delete bookings
 
-BookingService - create, update, retrieve and delete bookings
+    - BookingService - create, update, retrieve and delete bookings
 
-HealthCheckService - for API smoke test, basic operability check
+    - HealthCheckService - for API smoke test, basic operability check
 
-Includes logging, authentication
+src/main/resources:
+    
+    - log4j2.xml logging configuration
+
+src/main/resources/test_suites: TestNG suite .xml files by group
+
+    - regression.xml: all tests
+
+    - smoke.xml: only AuthTokenTest cases and HealthCheck
+
+src/test:
+
+    - Contains test cases
 
 ## Operation
 
-Clone repo
+    - Requires: Maven, Java 21
 
-Add variables to .env: USERNAME, PASSWORD
+    - Clone repo
 
-execute mvn test -DsuiteName={suiteName} (default is /src/main/resources/test_suites/testng.xml)
+    - Add variables to .env: USERNAME, PASSWORD
+
+execute `mvn test -DsuiteName={suiteName}` (default is /src/main/resources/test_suites/smoke.xml)

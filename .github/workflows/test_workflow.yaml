@@ -7,10 +7,10 @@ on:
         description: "Run a suite of tests"
         required: true
         type: choice
-        default: testng
+        default: smoke
         options:
-          - testng
           - smoke
+          - regression
 
 jobs:
   API-tests:
@@ -30,7 +30,7 @@ jobs:
           java-version: '21'
           cache: 'maven'
       - name: Run API Tests
-        run: mvn test -e -DsuiteName=${{inputs.suite}}
+        run: mvn test -DsuiteName=${{inputs.suite}}
       - name: Upload Execution log
         uses: actions/upload-artifact@v4
         with:

@@ -2,8 +2,10 @@
 
 <suite name="Default" verbose="1" >
   <test name="Regression">
-    <packages>
-      <package name="tests" />
-   </packages>
+    <groups>
+      <run>
+        <include name="regression" />
+      </run>
+    </groups>
  </test>
 </suite>

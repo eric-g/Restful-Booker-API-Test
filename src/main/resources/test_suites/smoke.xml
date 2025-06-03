@@ -2,8 +2,10 @@
 
 <suite name="Smoke" verbose="1" >
   <test name="AuthToken Tests">
-    <classes>
-      <class name="tests.AuthTokenTest" />
-    </classes>
+    <groups>
+      <run>
+        <include name="smoke" />
+      </run>
+    </groups>
  </test>
 </suite>
