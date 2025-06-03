@@ -17,18 +17,21 @@ public class BaseService {
     private final RequestSpecification requestSpecification;
     private final Dotenv dotenv;
 
+    static {
+        Dotenv.configure().ignoreIfMissing().systemProperties().load();
+        RestAssured.filters(new LoggingFilter());
+    }
+
     public BaseService() {
         dotenv = Dotenv.configure().ignoreIfMissing().systemProperties().load();
-        RestAssured.filters(new LoggingFilter());
         requestSpecification = given().baseUri(baseUrl);
         requestSpecification.contentType(ContentType.JSON);
     }
 
     protected <T> void addQueryParameter(HashMap<String, T> queryParams){
-        if(queryParams!=null){
+        if(queryParams != null){
             requestSpecification.queryParams(queryParams);
         }
-
     }
 
     protected <T> Response post(T payload, String endpoint) {

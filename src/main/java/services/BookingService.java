@@ -8,13 +8,17 @@ import models.request.CreateBookingRequest;
 public class BookingService extends BaseService {
             private String path = "/booking";
 
+            public BookingService() {
+                super();
+            }
+
             public Response getBookingByParam(HashMap<String, String> queryParamMap) {
                 addQueryParameter(queryParamMap);
                 return get(path);
             }
 
             public Response getBookingById(int id) {
-                path = path + "/" + id;
+                String path = this.path + "/" + id;
                 return get(path);
             }
 

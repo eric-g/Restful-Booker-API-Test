@@ -30,10 +30,12 @@ public class LoggingFilter implements Filter {
         logger.info("Request Headers: " + requestSpecification.getHeaders());
         logger.info("Request Query Parameters: " + requestSpecification.getQueryParams());
         logger.info("Request Body: " + requestSpecification.getBody());
+        logger.info("------------------------");
     }
     public void logResponse(Response response) {
         logger.info("Response Status Code: " + response.getStatusCode());
         logger.info("Response Headers: " + response.getHeaders());
+        logger.info("------------------------");
         //logger.info("Response Body: " + response.asPrettyString());
     }
 
