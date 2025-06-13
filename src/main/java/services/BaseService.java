@@ -44,6 +44,14 @@ public class BaseService {
                 .get(endpoint);
     }
 
+    protected <T> Response put(T payload, String authToken, String endpoint) {
+        return requestSpecification
+                .cookie("token", authToken)
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .put(endpoint);
+    }
+
     public String readEnv(String key){
         return dotenv.get(key, System.getenv(key));
     }
